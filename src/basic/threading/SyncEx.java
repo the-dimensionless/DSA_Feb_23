@@ -48,15 +48,21 @@ public class SyncEx {
     private static class InventoryCounter {
         private int items = 0;
 
-        public synchronized void increment() {
-            items++;
+        Object lock = new Object();
+
+        public void increment() {
+           synchronized (lock) {
+               items++;
+           }
         }
 
-        public synchronized void decrement() {
-            items--;
+        public void decrement() {
+            synchronized (lock) {
+                items--;
+            }
         }
 
-        public synchronized int getItems() {
+        public int getItems() {
             return items;
         }
     }
