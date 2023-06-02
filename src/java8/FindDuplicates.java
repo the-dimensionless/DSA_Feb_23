@@ -1,8 +1,6 @@
 package java8;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -23,6 +21,15 @@ public class FindDuplicates {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
         System.out.println("Duplicates => "+list);
+
+        // or
+        Set set = new HashSet();
+
+        List<String> collect = Arrays.stream(s.split(""))
+                .filter(ch -> !set.add(ch))
+                .collect(Collectors.toList());
+
+        System.out.println(": " + collect);
 
     }
 }
