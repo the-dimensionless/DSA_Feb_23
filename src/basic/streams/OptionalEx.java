@@ -1,6 +1,7 @@
 package basic.streams;
 
 import java.util.Optional;
+import java.util.function.Supplier;
 
 public class OptionalEx {
     public static void main(String[] args) {
@@ -21,5 +22,6 @@ public class OptionalEx {
 
         Integer orElseGet = optional.orElseGet(() -> 0);
         System.out.println(orElseGet);
+
     }
 }
